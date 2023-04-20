@@ -1,0 +1,71 @@
+# i3status configuration file. see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8. The following line should contain a sharp s: ß If the above line is n ot 
+# correctly displayed, fix your editor first!
+
+general {
+  colors = true
+  color_good = "#a3be8c"
+  color_degraded = "#ebcb8b"
+  color_bad = "#bf616a"
+  interval = 1
+  separator = " | "
+}
+order +="cpu_usage"
+order += "disk /"
+order +="volume master"
+order += "memory"
+order += "battery all"
+order +="wireless wlp2s0"
+order +="tztime local"
+
+volume master {
+        format = " ♪: %volume "
+        format_muted = " ♪: muted (%volume) "
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+cpu_usage{
+	format = " cpu: %usage "
+	degraded_threshold = 90
+}
+
+disk "/" {
+	format = " storage: %percentage_used/%total "
+}
+
+# wireless wlan0 {
+#         format_up = " W: (%quality at %essid, %bitrate) %ip "
+#         format_down = " W: down "
+# }
+#wireless wlan0 {
+ # format_up = " WLS: (%quality at %ssid) %ip "
+  #format_down  = "WLS: down"
+#}
+battery all{
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	#path=/sys/class/power_supply/%d/uevent
+	format = " battery: %status %percentage "
+	last_full_capacity = true
+	threshold_type= percentage
+	low_threshold= 20
+	format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+}
+tztime local {
+        format = " %Y-%m-%d   %I:%M:%S "
+}
+
+memory {
+  memory_used_method = classical
+  format=" memory: %used/%total "
+}
+
+wireless wlp2s0 {
+    format_up = "WiFi: %essid (%quality)"
+    format_down = "WiFi: disconnected"
+}
