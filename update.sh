@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "### connect to wifi .............................................................................................................."
-sudo wpa_passphrase "Amr" "amr_498390" >> /etc/wpa_supplicant/wpa_supplicant.conf
+sudo wpa_passphrase "wifiname" "password" >> /etc/wpa_supplicant/wpa_supplicant.conf
 sudo wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 sudo ln -s /etc/sv/wpa_supplicant /var/service
 echo "### update system .............................................................................................................."
