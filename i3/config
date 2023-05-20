@@ -1,9 +1,7 @@
 set $mod Mod4
 default_border pixel 2
 default_floating_border normal
-# exec --no-startup-id xsetroot -solid "#151515"
-exec --no-startup-id nitrogen --set-auto ~/.wallpaper/first-collection/void.png
-# hide_edge_borders none
+exec --no-startup-id xsetroot -solid "#151515"
 font xft:URWGothic-Book 9
 floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
@@ -25,16 +23,16 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-bindsym $mod+Shift+j move left
+bindsym $mod+Shift+j move up
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-bindsym $mod+Shift+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+Shift+v split v;exec notify-send 'tile vertically'
+# bindsym $mod+Shift+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+Shift+v split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -80,52 +78,54 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+r mode "resize"
-mode "resize" {
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+  mode "resize" {
+          bindsym j resize shrink width 5 px or 5 ppt
+          bindsym k resize grow height 5 px or 5 ppt
+          bindsym l resize shrink height 5 px or 5 ppt
+          bindsym semicolon resize grow width 5 px or 5 ppt
+          bindsym Left resize shrink width 10 px or 10 ppt
+          bindsym Down resize grow height 10 px or 10 ppt
+          bindsym Up resize shrink height 10 px or 10 ppt
+          bindsym Right resize grow width 10 px or 10 ppt
+          bindsym Return mode "default"
+          bindsym Escape mode "default"
+  }
 bindsym $mod+m bar mode toggle
 gaps inner 14
 gaps outer -2
-# smart_gaps on
-# smart_borders on
 bindsym $mod+n exec i3-sensible-terminal -e nnn -d 
 exec_always "setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle"
 # class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.focused          #458588 #458588 #458588 #458588 
+# client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+# client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+# client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+# client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.background       #F8F8F2
+# client.background       #F8F8F2
 
-bar {
-     status_command i3status
-     position top
-     colors {
-         background #282A36
-         statusline #F8F8F2
-         separator  #44475A
-         focused_workspace  #44475A #44475A #F8F8F2
-         active_workspace   #282A36 #44475A #F8F8F2
-         inactive_workspace #282A36 #282A36 #BFBFBF
-         urgent_workspace   #FF5555 #FF5555 #F8F8F2
-         binding_mode       #FF5555 #FF5555 #F8F8F2
-  
-     }
+  bar {
+       status_command i3status
+       position top
+       colors {
+           background #151515
+        }
+       #     statusline #F8F8F2
+       #     separator  #44475A
+       #     focused_workspace  #44475A #44475A #F8F8F2
+       #     active_workspace   #282A36 #44475A #F8F8F2
+       #     inactive_workspace #282A36 #282A36 #BFBFBF
+       #     urgent_workspace   #FF5555 #FF5555 #F8F8F2
+       #     binding_mode       #FF5555 #FF5555 #F8F8F2
+    
+       # }
 
-}
-bindsym $mod+Shift+f exec i3-sensible-terminal -e firefox youtube.com/feed/subscriptions
+  }
+bindsym $mod+Shift+f exec i3-sensible-terminal -e firefox youtube.com/feed/subscriptions 
+bindsym $mod+Shift+t exec i3-sensible-terminal -e firefox translate.google.com 
+bindsym $mod+Shift+y exec i3-sensible-terminal -e firefox youtube.com
 bindsym $mod+Shift+g exec i3-sensible-terminal -e firefox github.com/me33awy
 bindsym $mod+Shift+p exec i3-sensible-terminal -e mpv --ytdl-format=160+139 $(xclip -o)
 bindsym $mod+Shift+m exec i3-sensible-terminal -e mpv $(xclip -o)
 bindsym $mod+Shift+a exec i3-sensible-terminal -e mpv --ytdl-format=139 $(xclip -o)
+bindsym $mod+v exec i3-sensible-terminal -e vim

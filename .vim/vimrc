@@ -1,0 +1,21 @@
+set nu rnu
+set ic
+set noswapfile
+set spell
+set incsearch
+set splitbelow
+set wildmenu
+set termwinsize=20x200
+set background=dark
+set foldmethod=indent
+syntax on
+packloadall
+filetype plugin indent on
+let g:gruvbox_contrast_dark = "hard"
+let mapleader = '.'
+let g:gruvbox_invert_selection = "0"
+"let g:ctrlp_show_hidden = 1
+colorscheme gruvbox
+map <leader>l :term pdflatex %:p<cr>
+map <leader>p :term python %:p<cr>
+map <leader>s :so $MYVIMRC<cr>

@@ -13,7 +13,7 @@ sudo ln -s /etc/sv/dbus /var/service
 echo "### install install basic tools .............................................................................................................."
 sudo xbps-install -Sy pmount curl xdg-utils vim git ffmpeg yt-dlp gcc mpv alsa-utils alsa-plugins-pulseaudio
 echo "### install general tools......................................................................."
-sudo xbps-install -Sy alacritty i3-gaps i3status dmenu scrot zathura zathura-pdf-mupdf firefox nnn feh 
+sudo xbps-install -Sy alacritty i3-gaps i3status dmenu scrot zathura zathura-pdf-mupdf firefox nnn sxiv 
 echo "### finshing install tools .................................................................................................................."
 
 echo "### reboot System .............................................................................."

@@ -2,7 +2,7 @@ font:
   size: 7.5
 window:
   padding:
-    x: 5
-    y: 5
+    x: 6
+    y: 6
 import:
-  - dracula.yml
+  - ~/.config/alacritty/themes/themes/gruvbox_dark.yaml

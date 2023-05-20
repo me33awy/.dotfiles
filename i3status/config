@@ -22,12 +22,13 @@ volume master {
         mixer_idx = 0
 }
 cpu_usage{
-	format = " cpu: %usage "
+	format = " CPU: %usage "
 	degraded_threshold = 90
 }
 
 disk "/" {
-	format = " storage: %percentage_used/%total "
+	format = " Storage: %percentage_used/%total "
+	format = " Storage: %used/%total "
 }
 battery all{
 	path = "/sys/class/power_supply/BAT%d/uevent"
@@ -47,7 +48,7 @@ tztime local {
 
 memory {
   memory_used_method = classical
-  format=" memory: %used/%total "
+  format=" Memory: %used/%total "
 }
 
 wireless wlp2s0 {
